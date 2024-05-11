@@ -1,0 +1,135 @@
+:root{
+  --bg-color1:#212529;
+  --bg-color2:#2a2b2d;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  min-height: 100vh;
+ background-image: url("https://images.unsplash.com/photo-1579003593419-98f949b9398f?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+ background-position: center;
+ background-size: cover;
+  color: #fff;
+  font-family: sans-serif;
+  padding: 12px 24px;
+}
+.h1 {
+  font-weight:400 ;
+}
+
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2em 3em 4em 3em;
+
+}
+.header >div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city-time , .temp ,.weather{
+  margin: 0 1em;
+}
+.city-time h1{
+  margin: 0;
+  margin-bottom: 0.2em;
+  font-size: 3em;
+}
+.temp{
+  font-size: 7em;
+  margin: 0;
+}
+.weather i{
+display: block;
+margin: 0.5em 0;
+}
+.right-side{
+  position: absolute;
+  width: 38%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color:rgba(110, 110, 110, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px) ;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 1;
+  padding: 1.8em 1em;
+  overflow-y: scroll;
+}
+.right-side form{
+  margin-bottom: 3em;
+}
+.input{
+  width: 65%;
+  background-color: var(--bg-color2);
+  border: none;
+  padding: 11px;
+  margin-right: 5%;
+  font-size: 16px;
+  border-radius: 18px;
+  color: #fff;
+  &:focus{
+    outline: none;
+  }
+}
+#search-btn{
+  border: none;
+  padding: 11px;
+  font-size: 15px;
+  border-radius: 18px;
+  cursor: pointer;
+  background-color: cornflowerblue;
+}
+#location-btn{
+  border: none;
+  padding: 11px;
+  font-size: 15px;
+  border-radius: 18px;
+  cursor: pointer;
+  background-color: #ea6e4b;
+}
+.right-side ul{
+  padding: 0 0 1em 0;
+  margin: 2em 0;
+  border-bottom: 1px #ccc  solid;
+}
+.right-side ul li{
+  color: black;
+  font-weight: 600;
+  margin:  1em;
+  cursor: pointer;
+  word-spacing: 5%;
+  list-style: none;
+}
+.card {
+  padding:10px;
+  margin-bottom: 10px;
+}
+.card h2{
+  color: black;
+  margin-bottom: 10px;
+}
+.forecast-items{
+margin-bottom: 3%;
+}
+.icon-wrapper{
+display: inline;
+align-items: center;
+}
+.icon-wrapper img{
+  margin-right: 10%;
+}
