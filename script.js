@@ -3,7 +3,6 @@ const inputBox = document.getElementById("input-box");
 const cityInput = document.getElementById("city-input");
 const cities = document.querySelectorAll(".city");
 
-
 // Event listener for form submission
 inputBox.addEventListener("submit", function(event) {
     event.preventDefault(); // Preventing default form submission behavior
@@ -15,21 +14,23 @@ inputBox.addEventListener("submit", function(event) {
 });
 
 // Function to fetch weather data for a given city
-function fetchWeatherData(city) {
+async function fetchWeatherData(city) {
     const apiKey = '703d373859cd47b9b0a124753241105';
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            // Update DOM with weather information
-            updateWeatherInfo(data);
-            return data ;
-        })
-        .catch(error => {
-            console.error('Error fetching weather data:', error);
-        });
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Failed to fetch weather data');
+        }
+        const data = await response.json();
+        updateWeatherInfo(data);
+        return data;
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+    }
 }
+
 cities.forEach(city => {
     city.addEventListener('click', async () => { 
         const cityName = city.textContent;
@@ -43,18 +44,20 @@ cities.forEach(city => {
 });
 
 // Function to fetch 5-day forecast data for a given city
-function fetchForecastData(city) {
+async function fetchForecastData(city) {
     const apiKey = '703d373859cd47b9b0a124753241105';
     const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5`;
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            updateForecast(data);
-        })
-        .catch(error => {
-            console.error('Error fetching forecast data:', error);
-        });
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Failed to fetch forecast data');
+        }
+        const data = await response.json();
+        updateForecast(data);
+    } catch (error) {
+        console.error('Error fetching forecast data:', error);
+    }
 }
 
 // Function to update DOM with weather information
@@ -80,7 +83,6 @@ function updateWeatherInfo(data) {
     dateElement.textContent = `${weekday}, ${day}/${month}/${year}`;
     timeElement.textContent = `${hour}:${minute}`;
 }
-
 
 // Function to update DOM with 5-day forecast information
 function updateForecast(data) {
