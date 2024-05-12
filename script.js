@@ -17,7 +17,7 @@ inputBox.addEventListener("submit", function(event) {
 // Function to fetch weather data for a given city
 function fetchWeatherData(city) {
     const apiKey = '703d373859cd47b9b0a124753241105';
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -45,7 +45,7 @@ cities.forEach(city => {
 // Function to fetch 5-day forecast data for a given city
 function fetchForecastData(city) {
     const apiKey = '703d373859cd47b9b0a124753241105';
-    const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5`;
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5`;
 
     fetch(apiUrl)
         .then(response => response.json())
